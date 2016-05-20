@@ -1,0 +1,417 @@
+html{
+    width: 100%;
+    min-width: 880px;
+    overflow: auto;
+    background-image: url('../img/bg.png');
+    font-family: 'Russo One', sans-serif;
+}
+#scheme, .scheme{
+    margin: 0px auto 60px auto;
+    width: 99%;
+}
+.top-vagon{
+    border: 5px solid #590000;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    letter-spacing: -10px;
+    background-image: linear-gradient(bottom, rgb(176,176,176) 9%, rgb(186,186,186) 55%);
+    background-image: linear-gradient(bottom, rgb(199,199,199) 9%, rgb(204,204,204) 55%);
+    background-image: -o-linear-gradient(bottom, rgb(199,199,199) 9%, rgb(204,204,204) 55%);
+    background-image: -moz-linear-gradient(bottom, rgb(199,199,199) 9%, rgb(204,204,204) 55%);
+    background-image: -webkit-linear-gradient(bottom, rgb(199,199,199) 9%, rgb(204,204,204) 55%);
+    background-image: -ms-linear-gradient(bottom, rgb(199,199,199) 9%, rgb(204,204,204) 55%);
+
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.09, rgb(199,199,199)),
+            color-stop(0.55, rgb(204,204,204))
+    );
+}
+.vagon-block{
+    height: 100%;
+    width: 10.3%;
+    display: inline-block;
+    position: relative;
+    letter-spacing: normal;
+
+    background-image: linear-gradient(bottom, rgb(227,227,227) 9%, rgb(230,230,230) 55%);
+    background-image: -o-linear-gradient(bottom, rgb(227,227,227) 9%, rgb(230,230,230) 55%);
+    background-image: -moz-linear-gradient(bottom, rgb(227,227,227) 9%, rgb(230,230,230) 55%);
+    background-image: -webkit-linear-gradient(bottom, rgb(227,227,227) 9%, rgb(230,230,230) 55%);
+    background-image: -ms-linear-gradient(bottom, rgb(227,227,227) 9%, rgb(230,230,230) 55%);
+
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.09, rgb(227,227,227)),
+            color-stop(0.55, rgb(230,230,230))
+    );
+}
+.vagon-block, .vagon-block *{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+.block-seat{
+    width: 44.3%;
+    height: 60%;
+    overflow: hidden;
+
+    background-image: url('../img/rl.png');
+
+    border-radius: 9px;
+
+    box-shadow: 0px 0px 4px #333, inset 0 0 16px #333;
+}
+
+
+.block-seat.d{
+    width: 100%;
+    height: 25%;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 9px 9px 0px 0px;
+
+}
+
+.block-seat .top, .block-seat .down{
+    height: 50%;
+    -webkit-transition: all .3s ease-in-out;
+    position: relative;
+    border-radius: 9px;
+}
+.block-seat.d .top, .block-seat.d .down{
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+.block-seat .top{
+    box-shadow: 0px 1px 10px #470000;;
+    z-index: 998;
+}
+.block-seat.d .top{
+    box-shadow: 1px 0px 10px #470000;;
+}
+
+.l{
+    float: left;
+}
+.r{
+    float: right;
+}
+
+.wall{
+    border: 3px solid #590000;
+    position: absolute;
+    width: 0px;
+    z-index: 999;
+}
+
+.wall.t{
+    top: -4px;
+    height: 64%;
+    border-radius: 120px;
+}
+.wall.d{
+    bottom: -2px;
+    height: 27%;
+    border-radius: 111px;
+}
+
+.wall.l{
+    left: -2px;
+}
+.wall.r{
+    right: -1px;
+}
+
+.block-seat .top, .block-seat .down{
+    background-image: url('../img/rl.png');
+}
+.block-seat .top.inactive, .block-seat .down.inactive{
+    background-image: url('../img/rl_bw.png');
+}
+.block-seat .top:hover, .block-seat .down:hover{
+    background-image: url('../img/rl_l.png');
+    cursor: pointer;
+}
+.block-seat .top.inactive:hover, .block-seat .down.inactive:hover{
+    background-image: url('../img/rl_l_bw.png');
+    cursor: pointer;
+}
+
+.seat-number{
+    position: absolute;
+    width: 40px;
+    height: 23px;
+    border: 2px solid white;
+    background: #bd0000;
+    padding: 4px;
+    color: #feffed;
+    line-height: 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 0.9;
+
+    box-shadow: 0 1px 3px #333, inset 0 0 4px #222;
+    -webkit-box-shadow: 0 1px 3px #333, inset 0 0 4px #222;
+    -moz-box-shadow: 0 1px 3px #333, inset 0 0 4px #222;
+    -o-box-shadow: 0 1px 3px #333, inset 0 0 4px #222;
+
+    -border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -o--border-radius: 20px;
+
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+
+.seat .seat-number{
+    background: #bd0000;
+    color: #feffed;
+}
+
+.seat:hover .seat-number{
+    background: #ff0000;
+    color: #fff;
+}
+
+.seat.inactive .seat-number{
+    background: #9e9e9e;
+    color: #222;
+}
+
+.seat.inactive:hover .seat-number{
+    background: #EEE;
+    color: #000;
+}
+
+.block-seat.l .seat-number{
+    text-align: right;
+}
+.block-seat.r .seat-number{
+    text-align: left;
+}
+.block-seat.l .top .seat-number{
+    top: 0px;
+    left: -13px;
+}
+.block-seat.l .down .seat-number{
+    bottom: 1px;
+    left: -13px;
+}
+
+.block-seat.r .top .seat-number{
+    top: 0px;
+    right: -13px;
+}
+.block-seat.r .down .seat-number{
+    bottom: 1px;
+    right: -13px;
+}
+
+.block-seat.d .top .seat-number{
+    top: 2px;
+    left: -13px;
+    text-align: right;
+}
+.block-seat.d .down .seat-number{
+    bottom: 1px;
+    right: -13px;
+    text-align: left;
+}
+
+
+.caption{
+    text-align: center;
+    font-size: 25px;
+}
+
+.caption.main{
+    font-size: 40px;
+}
+
+
+/*IE*/
+html.lt-ie9 .mainContent{
+    display: none;
+}
+#no-ie-pls{
+    display: none;
+    text-align: center;
+}
+#no-ie-pls > div{
+    font-size: 72px;
+}
+#no-ie-pls > ul{
+    list-style: none;
+}
+html.lt-ie9 #no-ie-pls{
+    display: block;
+}
+
+
+#countdown .d{
+    border: 0px solid gray;
+    font-size: 54px;
+    display: inline-block;
+    color: #fff;
+
+    -webkit-border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 3px #111;
+    -o-border-radius: 4px;
+    -o-box-shadow: 1px 1px 3px #111;
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 3px #111;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px #111;
+
+    padding: 4px 3px 0px 3px;
+    margin-left: 4px;
+    background-image: url('../img/rl.png');
+    background-color: red;
+
+    text-shadow: -1px -1px 1px #222;
+    width: 40px;
+    line-height: normal;
+
+}
+
+#timer-container{
+    margin: 0 auto;
+    position: relative;
+    top: 20px
+}
+.d-block{
+    display: inline-block;
+    margin-left: 4px;
+}
+
+#countdown{
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    height: 100px;
+    z-index: 2;
+    width: 100%;
+}
+
+#countdown.in-progress{
+    display: block;
+}
+
+
+.header{
+    display: block;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    font-size: 40px;
+    width: 100%;
+}
+
+.logo{
+    font-family: 'Russo One', sans-serif;
+    padding: 10px;
+    font-size: 91px;
+    text-shadow: 1px 1px 2px #999;
+}
+
+.logo span{
+    display: block;
+    line-height: 75px;
+}
+.header-title{
+    font-family: 'Cinzel Decorative', sans;
+    font-size: 50px;
+    text-shadow: 1px 1px 3px #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.logo .down-logo-text{
+    font-size: 115px;
+}
+
+.logo a{
+    color: #ff0000;
+    text-decoration: none;
+
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+
+.logo a:hover{
+    color: #c70000;
+}
+
+red{
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
+
+.ppl{
+    color: #ddd;
+    font-size: 0.7em;
+    width: 90%;
+    padding: 1px 2px;
+    font-family: Verdana, sans-serif;
+    letter-spacing: -1px;
+    margin-left: 5px;
+    position: absolute;
+}
+.top .ppl{
+    top: 25px;
+}
+.down .ppl{
+    top: 4px;
+}
+.l .ppl{
+
+}
+.r .ppl{
+  right: 5px;
+}
+@media only screen and (min-width: 900px) {
+    .header-title{
+        font-size: 30px;
+        float: left;
+        display: inline-block;
+        line-height: 149px;
+        height: 140px;
+    }
+    .logo{
+        float: left;
+    }
+    #scheme, .scheme{
+        margin: 165px auto 60px auto;
+    }
+}
+
+@media only screen and (min-width: 1006px) {
+    .header-title{
+        font-size: 37px;
+    }
+}
+@media only screen and (min-width: 1265px) {
+    .header-title{
+        font-size: 50px;
+    }
+}
