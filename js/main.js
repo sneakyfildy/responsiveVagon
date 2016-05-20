@@ -63,25 +63,8 @@ $(document).ready(init);
 
 
 function init(){
-    initListeners();
     sizeVagon();
     startScheme();
-
-
-    window.goal = new Date(2017, 7, 24);
-    window.stopTimer = false;
-
-    var $inProgress = $('.in-progress');;
-
-    if ( goal > new Date() ){
-        tick();
-    }
-
-    $inProgress.text($inProgress.text() + ' Counting till ' +
-        goal.getFullYear() + '-' +
-        twoDigitMe(goal.getMonth(), true) + '-' +
-        twoDigitMe(goal.getDate(), true)
-    );
 }
 function sizeVagon(){
     var $vagon = $('.scheme');
@@ -102,87 +85,6 @@ function scheduleSizeImage(){
     setTimeout(function(){
         sizeVagon();
     }, 100);
-}
-
-
-
-function tick(){
-    var html,
-        ct = new Date()
-    ,t = goal - ct;
-
-    if ( t > 0 && !stopTimer ){
-        t = parseTime(t);
-
-        for ( var i in t ){
-            html = '';
-            for ( var j in t[i] ){
-                html += '<span class="d">' + t[i][j] + '</span>';
-            }
-            $('.' + i).html(html);
-        }
-        setTimeout(tick, 100);
-    }
-}
-
-function parseTime(ts){
-    var days	= 24*60*60*1000,
-    hours	= 60*60*1000,
-    minutes	= 60*1000,
-    seconds = 1000;
-
-    var d = Math.floor(ts / days)
-        ,d_obj = threeDigitMe(d);
-    ts -= d * days;
-
-    var h = Math.floor(ts / hours)
-        ,h_obj = twoDigitMe(h);
-    ts -= h * hours;
-
-    var m = Math.floor(ts / minutes)
-        ,m_obj = twoDigitMe(m);
-    ts -= m * minutes;
-
-    var s = Math.floor(ts / seconds)
-        ,s_obj = twoDigitMe(s);
-    ts -= s * seconds;
-
-    ts = twoDigitMe( Math.floor( ts / 100 ) % 100 );
-
-    return {
-        days:d_obj,
-        hours:h_obj,
-        mins:m_obj,
-        secs:s_obj,
-        msecs:ts
-    };
-}
-
-function twoDigitMe( n, glue ){
-    var res = {
-        d1 : String( Math.floor( n / 10 ) % 10 ),
-        d2: String ( n % 10 )
-    };
-    return  glue ? (res.d1 + res.d2) : res;
-}
-
-function threeDigitMe( n, glue ){
-    var res = {
-        d1 : String( Math.floor( n / 100 ) % 10 ),
-        d2 : String( Math.floor( n / 10 ) % 10 ),
-        d3: String ( n % 10 )
-    };
-    return  glue ? (res.d1 + res.d2 + res.d3) : res;
-}
-
-function oneDigitMe( n ){
-    return {
-        d1: String( Math.floor( n / 100 ) % 100 )
-    };
-}
-
-function initListeners(){
-    $(document).on('click', '.seat', onSeatClick);
 }
 
 function startScheme(){
@@ -227,10 +129,4 @@ function addPplToseat(ppl, $seat){
     if ( ppl.link ){
         $seat.attr('data-href', ppl.link);
     }
-}
-
-
-function onSeatClick(){
-    var link = $(this).attr('data-href');
-    link && window.open(link);
 }
